@@ -35,7 +35,7 @@ public final class LoggingUtil {
      * @param logger Logger
      * @param level Log level (ERROR, WARN, INFO, DEBUG, TRACE)
      * @param msg String custom message displayed
-     * @param supplier Supplier&lt;T&gt; supplier functions
+     * @param supplier SupplierWithException&lt;T&gt; supplier functions
      * @return T object
      * @throws E  exception thrown
      */
@@ -54,7 +54,7 @@ public final class LoggingUtil {
      * @param logger Logger
      * @param level Log level (ERROR, WARN, INFO, DEBUG, TRACE)
      * @param msg String custom message displayed
-     * @param supplier Supplier&lt;T&gt; supplier functions
+     * @param supplier BooleanSupplier&lt;T&gt; supplier functions
      * @return boolean value
      */
     public static boolean log(Logger logger, Levels level, String msg, BooleanSupplier supplier) {
@@ -72,7 +72,7 @@ public final class LoggingUtil {
      * @param logger Logger
      * @param level Log level (ERROR, WARN, INFO, DEBUG, TRACE)
      * @param msg String custom message displayed
-     * @param supplier Supplier&lt;T&gt; supplier functions
+     * @param supplier BooleanSupplierWithException&lt;T&gt; supplier functions
      * @return boolean value
      * @throws E  exception thrown
      */
@@ -102,7 +102,14 @@ public final class LoggingUtil {
             log(logger, level, String.format("%s call is completed in %d ms", msg, System.currentTimeMillis() - start ));
         }
     }
-
+    /**
+     * Logs time value Action required to execute in ms
+     * @param logger Logger
+     * @param level Log level (ERROR, WARN, INFO, DEBUG, TRACE)
+     * @param msg String custom message displayed
+     * @param action ActionWithException function
+     * @throws E  exception thrown
+     */
     public static <E extends Exception> void logEx(Logger logger, Levels level, String msg, ActionWithException<E> action) throws E {
         log(logger, level, String.format("%s is starting...", msg));
         long start = System.currentTimeMillis();
@@ -128,7 +135,7 @@ public final class LoggingUtil {
                 logger.warn(message);
                 break;
             case ERROR:
-                logger.warn(message);
+                logger.error(message);
                 break;
         }
     }
