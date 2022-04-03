@@ -76,13 +76,13 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
-        <version>5.2.3.RELEASE</version>
+        <version>5.3.18</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-aspects</artifactId>
-        <version>5.2.3.RELEASE</version>
+        <version>5.3.18</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     <dependency>
@@ -102,6 +102,13 @@
         <version>1.7.30</version>
     </dependency>
     <!--   Test dependencies     -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>5.3.18</version>
+        <scope>test</scope>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
         <groupId>junit</groupId>
